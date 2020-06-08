@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "bill"
+    }
+  },
+  "defaultProject": "bill",
+  "cli": {
+    "analytics": "ece1877f-96fc-48e0-a36b-fd390f0c7a6d"
+  }
 }

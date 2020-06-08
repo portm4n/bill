@@ -1,0 +1,22 @@
+:host {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .contenedor {
+    width: 64rem;
+    max-width: 80%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28rem;
+    min-height: 50rem;
+  }
+}
+@media (max-height: 50rem) {
+  :host {
+    padding-top: 3.2rem;
+    align-items: initial;
+  }
+}

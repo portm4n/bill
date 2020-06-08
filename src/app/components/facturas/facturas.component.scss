@@ -1,0 +1,155 @@
+:host {
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  .contenedor-facturas {
+    width: 100%;
+    background-image: url(../../../assets/img/fondo3.jpg);
+    background-position: bottom left;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    flex-direction: column;
+    box-shadow: 0px 0rem 4rem 1rem #e3e60b80;
+    padding: 3rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 1.4rem;
+    .contenedor-usuario {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 1.4rem;
+      box-shadow: 0px 0rem 0.4rem 0.4rem #e3e60b80;
+
+      .avatar {
+        max-width: 6rem;
+        max-height: 6rem;
+        width: 100%;
+        border-style: solid;
+        border-width: 0.3rem;
+        border-radius: 50%;
+        border-color: darken($color: #000000, $amount: 0);
+        margin-right: 4rem;
+      }
+      .nombre {
+        font-size: 2rem;
+        font-weight: 600;
+      }
+    }
+    .contenedor-lista-facturas {
+      display: flex;
+      flex-direction: column;
+      margin: 3rem 0;
+      flex: 1;
+      .titulo-facturas {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+      }
+      .contenedor-listado-facturas {
+        display: flex;
+        flex: 1;
+        overflow: auto;
+        padding: 1rem;
+
+        .contenedor-factura {
+          background-color: #ebebeb;
+          width: 100%;
+          max-width: 20rem;
+          padding: 2rem;
+          margin-right: 2rem;
+          box-shadow: 0rem 0rem 1rem 1px #f693ff;
+          border-radius: 1.4rem;
+          max-height: 27rem;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+          flex-direction: column;
+
+          .contenedor-tipo-factura {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            background-color: #3a363487;
+            border-radius: 1.2rem;
+            padding: 0.5rem;
+            box-shadow: 0 0 0.5rem 0px red;
+
+            .img-tipo-factura {
+              width: 100%;
+              max-width: 3rem;
+              border-radius: 50%;
+              margin-right: 1rem;
+              border-color: darken($color: #000000, $amount: 0);
+              border-style: solid;
+              border-width: 0.2rem;
+            }
+            .nombre-tipo-factura {
+              font-size: 1.8rem;
+              font-weight: 600;
+            }
+          }
+          .total {
+            font-size: 3rem;
+            font-weight: 600;
+          }
+          .tipo-de-reparticion {
+            font-size: 1.4rem;
+            text-align: center;
+            color: grey;
+            font-weight: 600;
+          }
+          .esta-pagada {
+            font-size: 1.4rem;
+            text-align: center;
+            color: grey;
+            font-weight: 600;
+          }
+          .fecha-de-creacion {
+            font-size: 1.4rem;
+            text-align: center;
+            color: grey;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+    .contenedor-botones {
+      display: flex;
+      justify-content: space-between;
+
+      .crear-factura {
+        background-color: #ff8d007a;
+        color: white;
+        font-size: 2.4rem;
+        padding: 1.2rem;
+        border-radius: 3.4rem;
+        max-width: 15rem;
+        width: 100%;
+        cursor: pointer;
+        border: none;
+        font-weight: 600;
+        box-shadow: -1px 0rem 1rem 0.3rem #ff8d00;
+      }
+      .volver {
+        background-color: #ff8d007a;
+        color: white;
+        font-size: 2.4rem;
+        padding: 1.2rem;
+        border-radius: 3.4rem;
+        max-width: 15rem;
+        width: 100%;
+        cursor: pointer;
+        border: none;
+        font-weight: 600;
+        box-shadow: -1px 0rem 1rem 0.3rem #ff8d00;
+      }
+    }
+  }
+}

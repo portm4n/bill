@@ -1,0 +1,193 @@
+:host {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  .contenedor-crear-factura {
+    width: 100%;
+    background-image: url(../../../assets/img/fondo3.jpg);
+    background-position: bottom left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 0px 0rem 4rem 1rem #e3e60b80;
+    padding: 3rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 1.4rem;
+    overflow: auto;
+    .titulo-crear-facturas {
+      background-color: white;
+      max-width: 16rem;
+      width: 100%;
+      padding: 1.5rem;
+      border-radius: 1.4rem;
+      box-shadow: 0px 0rem 0.4rem 0.4rem #e3e60b80;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .contenedor-datos-factura {
+      background-color: #ebebeb;
+      width: 100%;
+      min-width: 37rem;
+      max-height: 12rem;
+      height: 100%;
+      padding: 2rem;
+      margin-right: 2rem;
+      box-shadow: 0rem 0rem 1rem 1px #f693ff;
+      border-radius: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-direction: row;
+      margin-bottom: 1.5rem;
+      overflow: auto;
+      .total {
+        .titulo-total {
+          font-size: 1.2rem;
+          margin: 0 0 1rem 1rem;
+          font-weight: 600;
+          border: none;
+          padding-bottom: 0.2rem;
+          border-bottom: 0.1rem solid grey;
+        }
+        .input-total {
+          max-width: 6rem;
+          width: 100%;
+          display: flex;
+          text-align: center;
+          padding: 1rem;
+          border-radius: 1.2rem;
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+          }
+        }
+      }
+      .tipo-reparticion {
+        .titulo-tipo-reparticion {
+          font-size: 1.2rem;
+          margin: 0 0 1rem 1rem;
+          font-weight: 600;
+          border: none;
+          padding-bottom: 0.2rem;
+          border-bottom: 0.1rem solid grey;
+        }
+        .selector-reparticion {
+          max-width: 12rem;
+          width: 100%;
+          display: flex;
+          text-align: center;
+          padding: 1rem;
+          border-radius: 1.2rem;
+          border-width: 0.2rem;
+          border-color: grey;
+          &::placeholder {
+            color: rgb(99, 99, 99);
+            text-align: center;
+          }
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+          }
+        }
+      }
+      .tipo-factura-id {
+        .titulo-tipo-factura-id {
+          font-size: 1.2rem;
+          margin: 0 0 1rem 1rem;
+          font-weight: 600;
+          border: none;
+          padding-bottom: 0.2rem;
+          border-bottom: 0.1rem solid grey;
+        }
+        .selector-tipo-factura-id {
+          max-width: 12rem;
+          width: 100%;
+          display: flex;
+          text-align: center;
+          padding: 1rem;
+          border-radius: 1.2rem;
+          border-width: 0.2rem;
+          border-color: grey;
+        }
+      }
+    }
+    .contenedor-pagadores {
+      margin-bottom: 1.5rem;
+      display: flex;
+      overflow-x: auto;
+      .pagador {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        min-height: 20rem;
+        min-width: 16rem;
+        max-height: 20rem;
+        max-width: 16rem;
+        background: #212330;
+        border: 0.2rem solid rgba(255, 255, 255, 0.03);
+        box-sizing: border-box;
+        border-radius: 1.2rem;
+        flex: 1;
+        margin: 0 0.5rem;
+        position: relative;
+        cursor: pointer;
+        transition: transform 400ms ease-out;
+        &:hover {
+          border-color: #ffac30;
+          .pagador-avatar {
+            transform: scale(1.1);
+          }
+          .pagador-nombre {
+            color: #ffac30;
+          }
+        }
+        .pagador-avatar {
+          max-height: 8rem;
+          max-width: 8rem;
+          width: 100%;
+          border: 0.4rem solid darken($color: #000000, $amount: 0);
+          border-radius: 50%;
+        }
+        .pagador-nombre {
+          font-size: 1.2rem;
+          margin: 0 0 1rem 1rem;
+          font-weight: 600;
+          color: gold;
+        }
+      }
+    }
+    .contenedor-botones {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .boton-crear-factura {
+        background-color: #ff8d007a;
+        color: white;
+        font-size: 2.4rem;
+        padding: 1.2rem;
+        border-radius: 3.4rem;
+        max-width: 15rem;
+        width: 100%;
+        cursor: pointer;
+        border: none;
+        font-weight: 600;
+        box-shadow: -1px 0rem 1rem 0.3rem #ff8d00;
+        align-items: center;
+      }
+      .boton-volver {
+        background-color: #ff8d007a;
+        color: white;
+        font-size: 2.4rem;
+        padding: 1.2rem;
+        border-radius: 3.4rem;
+        max-width: 15rem;
+        width: 100%;
+        cursor: pointer;
+        border: none;
+        font-weight: 600;
+        box-shadow: -1px 0rem 1rem 0.3rem #ff8d00;
+      }
+    }
+  }
+}

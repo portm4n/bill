@@ -1,0 +1,27 @@
+<main class="contenedorPerfil">
+  <div class="avatarYNombre">
+    <p class="nombrePerfil">{{ perfil?.nombre }}</p>
+    <img class="avatarPerfil" [src]="perfil?.avatarURL" alt="" />
+  </div>
+  <div class="infoPerfil">
+    <div class="apellidoPerfil">
+      <p class="tituloApellido">Apellido</p>
+      <p class="apellidoPerfil">{{ perfil?.apellidos }}</p>
+    </div>
+    <div class="telefonoPerfil">
+      <p class="tituloTelefono">Teléfono</p>
+      <p class="telefonoPerfil">{{ perfil?.telefono }}</p>
+    </div>
+    <div class="fechaAltaPerfil">
+      <p class="tituloFechaAlta">Fecha Alta</p>
+      <p class="fechaAltaPerfil">{{ perfil?.fechaDeCreacion | date }}</p>
+    </div>
+    <button
+      class="ver-facturas"
+      [routerLink]="['/perfil', usuarioId, 'facturas']"
+    >
+      Ver Facturas
+    </button>
+    <button class="volver" (click)="volver()">Volver</button>
+  </div>
+</main>

@@ -1,0 +1,37 @@
+:host {
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  .contenedor-crear-usuario {
+    .contenedor-titulo {
+      .contenedor-logo {
+        .logo {
+        }
+      }
+      .titulo-pagina {
+      }
+    }
+    .contenedor-nombre {
+      .nombre {
+      }
+      .apellidos {
+      }
+    }
+
+    .contenedor-telefono {
+      .telefono {
+      }
+    }
+    .contenedor-avatar {
+      .avatar {
+      }
+    }
+    .contenedor-botones {
+      .crear-perfil {
+      }
+      .volver {
+      }
+    }
+  }
+}

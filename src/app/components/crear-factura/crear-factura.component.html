@@ -1,0 +1,62 @@
+<div class="contenedor-crear-factura">
+  <h1 class="titulo-crear-facturas">Crear Factura</h1>
+  <div class="contenedor-datos-factura">
+    <div class="total">
+      <div class="titulo-total">Total</div>
+      <input
+        [(ngModel)]="nuevaFactura.total"
+        class="input-total"
+        type="number"
+        placeholder="Total"
+        #totalInPut
+      />
+    </div>
+    <div class="tipo-reparticion">
+      <div class="titulo-tipo-reparticion">Tipo de Repartición</div>
+      <select
+        class="selector-reparticion"
+        [(ngModel)]="nuevaFactura.tipoDeReparticion"
+      >
+        <option selected disabled [ngValue]="undefined">Seleecionar</option>
+        <option [ngValue]="TipoDeReparticion.Igualitaria">{{
+          TipoDeReparticion[TipoDeReparticion.Igualitaria]
+        }}</option>
+        <option [ngValue]="TipoDeReparticion.Especifica">{{
+          TipoDeReparticion[TipoDeReparticion.Especifica]
+        }}</option>
+      </select>
+    </div>
+    <div class="tipo-factura-id">
+      <p class="titulo-tipo-factura-id">Tipo de Factura</p>
+      <select
+        class="selector-tipo-factura-id"
+        [(ngModel)]="nuevaFactura.tipoDeFacturaId"
+      >
+        <option selected disabled [ngValue]="undefined">Seleccionar</option>
+        <option
+          class="tipos-de-factura"
+          *ngFor="let tipo of tiposDeFactura"
+          [ngValue]="tipo.id"
+        >
+          <p>{{ tipo.nombre }}</p></option
+        >
+      </select>
+    </div>
+  </div>
+  <div class="contenedor-pagadores">
+    <div
+      class="pagador"
+      *ngFor="let sugerido of sugeridos"
+      (click)="anadirPagador(sugerido)"
+    >
+      <img [src]="sugerido.avatarURL" alt="" class="pagador-avatar" />
+      <p class="pagador-nombre">{{ sugerido.nombre }}</p>
+    </div>
+  </div>
+  <div class="contenedor-botones">
+    <button class="boton-crear-factura" (click)="crearFactura()">
+      Crear Factura
+    </button>
+    <button class="boton-volver" (click)="volver()">Volver</button>
+  </div>
+</div>

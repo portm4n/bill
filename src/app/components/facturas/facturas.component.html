@@ -1,0 +1,52 @@
+<div class="contenedor-facturas">
+  <div class="contenedor-usuario">
+    <img class="avatar" [src]="usuario?.avatarURL" alt="" />
+    <div class="nombre">{{ usuario?.nombre }} {{ usuario?.apellidos }}</div>
+  </div>
+  <div class="contenedor-lista-facturas">
+    <div class="titulo-facturas">Facturas:</div>
+
+    <div class="contenedor-listado-facturas">
+      <div class="contenedor-factura" *ngFor="let factura of facturas">
+        <div class="contenedor-tipo-factura">
+          <img
+            class="img-tipo-factura"
+            [src]="obtenerTipoFactura(factura.tipoDeFacturaId, 'imagenURL')"
+            alt=""
+          />
+          <div class="nombre-tipo-factura">
+            {{ obtenerTipoFactura(factura.tipoDeFacturaId, "nombre") }}
+          </div>
+        </div>
+
+        <div class="total">{{ factura.total }}€</div>
+        <!-- <div class="creador">{{ factura.creadorId }}</div> -->
+        <div class="tipo-de-reparticion">
+          Tipo Reparticion: {{ factura.tipoDeReparticion | uppercase }}
+        </div>
+        <div class="esta-pagada">Pagada: {{ pagada(factura.estaPagada) }}</div>
+        <div class="fecha-de-creacion">
+          {{ factura.fechaDeCreacion | date }}
+        </div>
+        <!-- <div class="pagar">{{ factura.pagar }}</div> -->
+      </div>
+    </div>
+  </div>
+  <div class="contenedor-botones">
+    <button
+      class="crear-factura"
+      [routerLink]="['/perfil', usuarioId, 'crearfactura']"
+    >
+      Nueva Factura
+    </button>
+    <button class="volver" (click)="volver()">Volver</button>
+  </div>
+</div>
+
+<!-- <div class="contenedor-facturas">
+  <div class="facturas" *ngFor="let factura of facturas">
+    <h1>{{ factura.id }}</h1>
+    <h1>{{ usuario?.nombre }}</h1>
+  </div>
+</div>
+<button (click)="anadirFactura()">Añadir factura</button> -->
