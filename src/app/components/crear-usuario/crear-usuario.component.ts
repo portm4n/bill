@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { MockApiService } from '../../lib/servicio/mock-api.service';
+import { UsuarioDTO } from '../../lib/servicio/Responses/responses.model';
 
 @Component({
   selector: 'app-crear-usuario',
@@ -7,10 +9,13 @@ import { Location } from '@angular/common';
   styleUrls: ['./crear-usuario.component.scss'],
 })
 export class CrearUsuarioComponent implements OnInit {
-  constructor(private location: Location) {}
+  usuario: Array<UsuarioDTO>;
+  constructor(private location: Location, private mockApiService: MockApiService) {}
   volver() {
     this.location.back();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.mockApiService.obtenerUsuarios$().subscribe((datos) => {this.usuario = datos; } );
+  }
 }

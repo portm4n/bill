@@ -1,85 +1,81 @@
 :host {
-  height: 100%;
-  width: 100%;
-  flex: 1;
-  display: flex;
-  .contenedor {
+    height: 100%;
     width: 100%;
-    background-image: url(../../../assets/img/fondo.jpg);
-    background-position: bottom left;
-    display: flex;
     flex: 1;
-    justify-content: space-evenly;
-    flex-direction: column;
-    box-shadow: 0px 0rem 4rem 1rem #e3e60b80;
-    padding: 3rem;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    .cajaLogo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .logo {
-        font-size: 1.6rem;
-        width: 18rem;
-        height: 15rem;
-      }
-    }
-    .datosLogin {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border-radius: 1.2rem;
-
-      .selector {
+    display: flex;
+    .contenedor {
         width: 100%;
-        max-width: 28rem;
-        cursor: pointer;
-        font-weight: 800;
-        font-size: 1.8rem;
-        padding: 1rem;
-        border-radius: 1.2rem;
-        align-items: flex-start;
-        outline: none;
-      }
+        background-image: url(../../../assets/img/fondo.jpg);
+        background-position: bottom left;
+        display: flex;
+        flex: 1;
+        justify-content: space-evenly;
+        flex-direction: column;
+        box-shadow: 0px 0rem 4rem 1rem #e3e60b80;
+        padding: 3rem;
+        background-repeat: no-repeat;
+        background-size: cover;
+        .cajaLogo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .logo {
+                font-size: 1.6rem;
+                width: 18rem;
+                height: 18rem;
+            }
+        }
+        .datosLogin {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1.2rem;
+            .selector {
+                width: 100%;
+                max-width: 28rem;
+                cursor: pointer;
+                font-weight: 800;
+                font-size: 1.8rem;
+                padding: 1rem;
+                border-radius: 1.2rem;
+                align-items: flex-start;
+                outline: none;
+            }
+        }
+        .contenedorBotones {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            .botonLogin {
+                background-color: #ff8d007a;
+                font-size: 2.8rem;
+                padding: 1.2rem;
+                color: white;
+                border-radius: 3.4rem;
+                cursor: pointer;
+                border: none;
+                font-weight: 600;
+                box-shadow: white;
+                max-width: 32rem;
+                width: 100%;
+                margin-bottom: 4rem;
+                box-shadow: -1px 0rem 1rem 0.3rem #ff8d00;
+            }
+            .botonRegistro {
+                background-color: #ff8d007a;
+                color: white;
+                font-size: 2.8rem;
+                padding: 1.2rem;
+                border-radius: 3.4rem;
+                max-width: 32rem;
+                width: 100%;
+                cursor: pointer;
+                border: none;
+                font-weight: 600;
+                box-shadow: -1px 0rem 1rem 0.3rem #ff8d00;
+            }
+        }
     }
-    .contenedorBotones {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      align-items: center;
-
-      .botonLogin {
-        background-color: #ff8d007a;
-        font-size: 2.8rem;
-        padding: 1.2rem;
-        color: white;
-        border-radius: 3.4rem;
-        cursor: pointer;
-        border: none;
-        font-weight: 600;
-        box-shadow: white;
-        max-width: 32rem;
-        width: 100%;
-        margin-bottom: 4rem;
-        box-shadow: -1px 0rem 1rem 0.3rem #ff8d00;
-      }
-      .botonRegistro {
-        background-color: #ff8d007a;
-        color: white;
-        font-size: 2.8rem;
-        padding: 1.2rem;
-        border-radius: 3.4rem;
-        max-width: 32rem;
-        width: 100%;
-        cursor: pointer;
-        border: none;
-        font-weight: 600;
-        box-shadow: -1px 0rem 1rem 0.3rem #ff8d00;
-      }
-    }
-  }
 }

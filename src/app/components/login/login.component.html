@@ -1,25 +1,20 @@
 <main class="contenedor">
-  <div class="cajaLogo">
-    <img src="../../../assets/img/logo.png" alt="" class="logo" />
-  </div>
-  <div class="datosLogin">
-    <select [(ngModel)]="usuarioSeleccionadoId" class="selector"
-      ><option class="opcionSeleccionar" value="">Seleccionar Usuario</option>
+    <div class="cajaLogo">
+        <img src="../../../assets/img/portm4nkappa112x112.png" alt="" class="logo" />
+    </div>
+    <div class="datosLogin">
+        <select [(ngModel)]="usuarioSeleccionadoId" class="selector"><option class="opcionSeleccionar" value="">Seleccionar Usuario</option>
       <option *ngFor="let usuario of usuarios" [ngValue]="usuario.id"
         >{{ usuario.nombre }}
       </option>
     </select>
-  </div>
-  <div class="contenedorBotones">
-    <button
-      [disabled]="!usuarioSeleccionadoId"
-      class="botonLogin"
-      routerLink="/perfil/{{ usuarioSeleccionadoId }}"
-    >
+    </div>
+    <div class="contenedorBotones">
+        <button [disabled]="!usuarioSeleccionadoId" class="botonLogin" routerLink="/perfil/{{ usuarioSeleccionadoId }}">
       Log In
     </button>
-    <button class="botonRegistro" routerLink="/crearUsuario">
+        <button class="botonRegistro" routerLink="/crearUsuario">
       Registro
     </button>
-  </div>
+    </div>
 </main>
