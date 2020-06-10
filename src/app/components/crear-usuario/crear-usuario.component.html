@@ -9,17 +9,17 @@
     <div class="contenedor-nombre">
         <div class="nombre">
             <div class="titulo-nombre">Nombre</div>
-            <input class="input-nombre" type="string" placeholder="Nombre" #nombreInPut>
+            <input [(ngModel)]="nuevoUsuario.nombre" class="input-nombre" type="string" placeholder="Nombre" #nombreInPut>
         </div>
         <div class="apellidos">
             <div class="titulo-apellidos">Apellidos</div>
-            <input class="input-apellidos" type="string" placeholder="Apellidos" #apellidoInPut>
+            <input [(ngModel)]="nuevoUsuario.apellidos" class="input-apellidos" type="string" placeholder="Apellidos" #apellidoInPut>
         </div>
     </div>
     <div class="contenedor-telefono">
         <div class="telefono">
             <div class="titulo-telefono">Teléfono</div>
-            <input class="input-telefono" type="number" placeholder="Telefono" #telefonoInPut>
+            <input [(ngModel)]="nuevoUsuario.telefono" class="input-telefono" type="number" placeholder="Telefono" #telefonoInPut>
         </div>
     </div>
     <div class="contenedor-avatar">
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="contenedor-botones">
-        <button class="crear-perfil">Registrarse</button>
+        <button class="crear-perfil" (click)="crearUsuario() ">Registrarse</button>
         <button class="volver" (click)="volver()">Volver</button>
     </div>
 </div>
