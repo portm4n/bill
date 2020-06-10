@@ -20,7 +20,7 @@ import { CrearFacturaComponent } from './components/crear-factura/crear-factura.
     PerfilComponent,
     CrearFacturaComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, CommonModule, FormsModule],
+  imports: [BrowserModule, CommonModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

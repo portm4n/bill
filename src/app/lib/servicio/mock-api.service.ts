@@ -16,8 +16,12 @@ import { tap } from 'rxjs/operators';
 export class MockApiService {
   constructor() {}
 
-  iniciarBackendConDatosDeLocalStorage$(): void {
+  iniciarBackendConDatosDeLocalStorage(): void {
     customHttp.iniciarBackendConDatosDeLocalStorage();
+  }
+
+  obtenerUsuarioConectado$(): Observable<UsuarioDTO> {
+    return customHttp.obtenerUsuarioConectado();
   }
 
   login$(credenciales: CredencialesDTO): Observable<string> {
@@ -67,12 +71,19 @@ export class MockApiService {
   }
   /* PUT */
 
+  pagarFacturaPorId$(facturaId: string): Observable<null> {
+    return customHttp.pagarFacturaPorId(facturaId);
+  }
+
   /* POST */
   crearUsuario$(usuarioACrear: CrearUsuarioDTO): Observable<UsuarioDTO> {
     return customHttp.crearUsuario(usuarioACrear);
   }
 
-  anadirContacto$(usuarioId, contactoId): Observable<UsuarioDTO> {
+  anadirContacto$(
+    usuarioId: string,
+    contactoId: string
+  ): Observable<UsuarioDTO> {
     return customHttp.anadirContacto(usuarioId, contactoId);
   }
 

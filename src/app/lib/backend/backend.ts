@@ -67,7 +67,7 @@ export function obtenerUsuarioConectado() {
   let bbddToken = bbdd.tokens[token];
   let usuarioConectado = null;
   if (token && bbddToken) {
-    usuarioConectado = this.gestionarExpiracionToken();
+    usuarioConectado = gestionarExpiracionToken(bbddToken);
   } else {
     localStorage.setItem('bbdd', JSON.stringify(bbdd));
   }
@@ -76,7 +76,7 @@ export function obtenerUsuarioConectado() {
 
 function gestionarExpiracionToken(bbddToken) {
   let usuarioConectado = null;
-  if (tokenHaExpirado(bbddToken.fechaDeCreacion)) {
+  if (tokenHaExpirado(bbddToken.fechaDeExpiracion)) {
     localStorage.removeItem('token');
   } else {
     usuarioConectado = bbdd.usuarios[bbddToken.usuarioId];
@@ -151,6 +151,8 @@ export function eliminarContacto(usuarioId, contactoId) {
 
 export function crearFactura(facturaACrear) {
   let id = generateGuid();
+  let token = localStorage.getItem('token');
+  let creadorId = bbdd.tokens[token].usuarioId;
   bbdd.facturas[id] = {
     id,
     total: facturaACrear.total,
@@ -158,6 +160,7 @@ export function crearFactura(facturaACrear) {
     tipoDeReparticion: TipoDeReparticionModelo[facturaACrear.tipoDeReparticion],
     tipoDeFacturaId: facturaACrear.tipoDeFacturaId,
     fechaDeCreacion: new Date(),
+    creadorId,
   };
   facturaACrear.pagadores.forEach((pagador) => {
     bbdd.r_facturas_usuarios[`${id}-${pagador.usuarioId}`] = {
@@ -177,6 +180,26 @@ export function crearFactura(facturaACrear) {
   });
   localStorage.setItem('bbdd', JSON.stringify(bbdd));
   return of(bbdd.facturas[id]).pipe(delay(1000));
+}
+
+export function pagarFacturaPorId(facturaId) {
+  let token = localStorage.getItem('token');
+  let bbddToken = bbdd.tokens[token];
+  let usuarioConectado = null;
+  if (token && bbddToken) {
+    usuarioConectado = gestionarExpiracionToken(bbddToken);
+    bbdd.r_facturas_usuarios[
+      `${facturaId}-${usuarioConectado.id}`
+    ].estaPagada = true;
+    if (
+      !bbdd.r_facturas_usuarios[`${facturaId}-${usuarioConectado.id}`].find(
+        (r) => !r.estaPagada
+      )
+    ) {
+      bbdd.facturas[facturaId].estaPagada = true;
+    }
+  }
+  return of(null).pipe(delay(1000));
 }
 
 function gestionarSiElPagadorSeraSugerido(creadorId, pagadorId) {
@@ -267,7 +290,7 @@ export function login(credenciales: CredencialesDTO) {
 }
 
 export function iniciarBackendConDatosDeLocalStorage() {
-  let bbddLocalStorage = localStorage.getItem('bbdd');
+  let bbddLocalStorage = JSON.parse(localStorage.getItem('bbdd'));
   if (bbddLocalStorage) {
     sobreEscribirBBDD(bbddLocalStorage);
   } else {

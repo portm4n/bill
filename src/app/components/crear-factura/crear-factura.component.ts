@@ -11,6 +11,7 @@ import {
   PagadorDTO,
 } from 'src/app/lib/servicio/Requests/requests.model';
 import { TipoDeReparticionModelo } from 'src/app/lib/backend/modelos.model';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-crear-factura',
@@ -51,8 +52,12 @@ export class CrearFacturaComponent implements OnInit {
   }
   crearFactura() {
     this.nuevaFactura.pagadores = this.pagadores;
-    this.router.navigate(['/perfil', this.usuarioId]);
-    window.alert('Creada con exito');
+    this.mockApiService
+      .crearFactura$(this.nuevaFactura)
+      .subscribe((facturaCreada) => {
+        this.router.navigate(['/perfil', this.usuarioId]);
+        window.alert('Creada con exito');
+      });
   }
   anadirPagador(usuario: UsuarioDTO) {
     if (this.estaPagadorAnadido(usuario.id)) {

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MockApiService } from './lib/servicio/mock-api.service';
-import { FacturaDTO } from './lib/servicio/Responses/responses.model';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,7 @@ import { FacturaDTO } from './lib/servicio/Responses/responses.model';
 export class AppComponent implements OnInit {
   //title = 'bill';
   //
-  // constructor(private mockApiService: MockApiService) {}
+  constructor(private mockApiService: MockApiService) {}
   // ngOnInit(): void {
   //   this.mockApiService.obtenerTodaLaBaseDeDatos$().subscribe((datos) => {
   //     console.log(datos);
@@ -23,7 +22,10 @@ export class AppComponent implements OnInit {
   // }
   // facturas: Array<FacturaDTO>;
   // constructor(private mockApiService: MockApiService) {}
+
   ngOnInit(): void {
+    this.mockApiService.iniciarBackendConDatosDeLocalStorage();
+
     //   this.mockApiService
     //     .obtenerFacturasPorUsuarioId$('77baf3f2-e2d1-42c5-b5fd-57ac681b4554')
     //     .subscribe((facturaUsuarioPutoJuanjo) => {

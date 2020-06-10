@@ -30,4 +30,4 @@ export function tokenHaExpirado(fechaExpiracionToken) {
   return new Date().getTime() > fechaExpiracionToken;
 }
 
-export const tiempoDeExpiracion = 120 * 60 * 60 * 1000;
+export const tiempoDeExpiracion = 1 * 60 * 60 * 1000;

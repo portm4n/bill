@@ -234,20 +234,16 @@ var tipo_de_facturas = {
   },
 };
 
-var tokens = {};
-
-var _bbdd = {
+export var bbdd = {
   usuarios,
   contactos,
   sugeridos,
   facturas,
   r_facturas_usuarios,
   tipo_de_facturas,
-  tokens,
+  tokens: {},
 };
 
-export const bbdd = _bbdd;
-
-export function sobreEscribirBBDD(bbdd) {
-  _bbdd = { ...bbdd };
+export function sobreEscribirBBDD(bbddLocal) {
+  bbdd = { ...bbddLocal };
 }
