@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.usuarioSeleccionadoId = '';
     this.mockApiService.obtenerUsuarios$().subscribe((listadoUsuarios) => {
-      console.log(listadoUsuarios);
       this.usuarios = listadoUsuarios;
     });
   }

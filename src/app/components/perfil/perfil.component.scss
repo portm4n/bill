@@ -1,103 +1,277 @@
 :host {
-  width: 100%;
-  height: 100%;
-  .contenedorPerfil {
-    background: darken($color: #ffffff, $amount: 0);
-    border-radius: 1.2rem;
-    display: flex;
-    flex-direction: column;
     width: 100%;
-    .contenedor-cabecera-perfil {
-      flex: 1;
-      .cabecera-perfil {
-        display: flex;
-        background-color: rgb(68, 68, 173);
+    height: 100%;
+    .contenedorPerfil {
+        background: darken($color: #ffffff, $amount: 0);
         border-radius: 1.2rem;
-        align-items: center;
-        padding: 1rem;
-        margin-bottom: 1.5rem;
-        .volver {
-          margin-right: 3rem;
-          padding: 1rem;
-          font-size: 2.4rem;
-          border-radius: 1.2rem;
-        }
-        .titulo-perfil {
-          font-size: 2rem;
-          font-weight: 600;
-          border: none;
-          border-bottom: 0.1rem solid darkblue;
-        }
-      }
-    }
-    .infoPerfil {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      .datos {
         display: flex;
         flex-direction: column;
-        justify-content: inherit;
-        .nombre-perfil {
-          .titulo-nombre {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
+        width: 100%;
+        .contenedor-cabecera-perfil {
+            flex: 1;
+            .cabecera-perfil {
+                display: flex;
+                background-color: rgb(68, 68, 173);
+                border-radius: 1.2rem;
+                align-items: center;
+                padding: 1rem;
+                margin-bottom: 1.5rem;
+                .volver {
+                    margin-right: 3rem;
+                    padding: 1rem;
+                    font-size: 2.4rem;
+                    border-radius: 1.2rem;
+                }
+                .titulo-perfil {
+                    font-size: 2rem;
+                    font-weight: 600;
+                    border: none;
+                    border-bottom: 0.1rem solid darkblue;
+                }
+            }
+        }
+        .infoPerfil {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            .datos {
+                display: flex;
+                flex-direction: column;
+                justify-content: inherit;
+                flex: 1;
+                padding: 0 1rem;
+                .nombre-perfil {
+                    .titulo-nombre {
+                        font-size: 1.2rem;
+                        margin-bottom: 1rem;
+                        border: none;
+                        border-bottom: 0.1rem solid darkblue;
+                        width: fit-content;
+                    }
+                    .nombre-perfil {
+                        background-color: rgba(199, 113, 199, 0.308);
+                        font-size: 2rem;
+                        margin-bottom: 2rem;
+                        font-weight: 600;
+                        color: rgb(68, 68, 173);
+                        margin-left: 1rem;
+                        padding: 0.5rem;
+                        border-radius: 1.2rem;
+                    }
+                }
+                .apellidoPerfil {
+                    .tituloApellido {
+                        font-size: 1.2rem;
+                        margin-bottom: 1rem;
+                        border: none;
+                        border-bottom: 0.1rem solid darkblue;
+                        width: fit-content;
+                    }
+                    .apellidoPerfil {
+                        background-color: rgba(199, 113, 199, 0.308);
+                        font-size: 2rem;
+                        margin-bottom: 2rem;
+                        font-weight: 600;
+                        color: rgb(68, 68, 173);
+                        margin-left: 1rem;
+                        padding: 0.5rem;
+                        border-radius: 1.2rem;
+                    }
+                }
+                .telefonoPerfil {
+                    .tituloTelefono {
+                        font-size: 1.2rem;
+                        margin-bottom: 1rem;
+                        border: none;
+                        border-bottom: 0.1rem solid darkblue;
+                        width: fit-content;
+                    }
+                    .telefonoPerfil {
+                        background-color: rgba(199, 113, 199, 0.308);
+                        font-size: 2rem;
+                        margin-bottom: 2rem;
+                        font-weight: 600;
+                        color: rgb(68, 68, 173);
+                        margin-left: 1rem;
+                        padding: 0.5rem;
+                        border-radius: 1.2rem;
+                    }
+                }
+                .fechaAltaPerfil {
+                    .tituloFechaAlta {
+                        font-size: 1.2rem;
+                        margin-bottom: 1rem;
+                        border: none;
+                        border-bottom: 0.1rem solid darkblue;
+                        width: fit-content;
+                    }
+                    .fechaAltaPerfil {
+                        background-color: rgba(199, 113, 199, 0.308);
+                        font-size: 2rem;
+                        margin-bottom: 2rem;
+                        font-weight: 600;
+                        color: rgb(68, 68, 173);
+                        margin-left: 1rem;
+                        padding: 0.5rem;
+                        border-radius: 1.2rem;
+                    }
+                }
+            }
+            .avatar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 0 4rem 0 2rem;
+                .avatarPerfil {
+                    border-radius: 50%;
+                    max-width: 12rem;
+                    border: 0.2rem solid darken($color: #000000, $amount: 0);
+                }
+            }
+        }
+        .titulo-amigos {
+            font-size: 2.4rem;
+            font-weight: 600;
+            margin: 0 0 1rem 1rem;
             border: none;
             border-bottom: 0.1rem solid darkblue;
             width: fit-content;
-          }
-          .nombre-perfil {
-          }
         }
-
-        .apellidoPerfil {
-          .tituloApellido {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
+        .contenedor-contactos {
+            display: flex;
+            flex-direction: row;
+            overflow: auto;
+            padding: 1rem;
+            border: 0.2rem solid blue;
+            margin: 1rem;
+            border-radius: 1.2rem;
+            .contacto {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                min-height: 20rem;
+                min-width: 16rem;
+                max-height: 20rem;
+                max-width: 16rem;
+                background: #212330;
+                border: 0.2rem solid rgba(255, 255, 255, 0.03);
+                box-sizing: border-box;
+                border-radius: 1.2rem;
+                flex: 1;
+                margin: 0 0.5rem;
+                position: relative;
+                cursor: pointer;
+                transition: transform 400ms ease-out;
+                &:hover {
+                    border-color: #ffac30;
+                    .contacto-avatar {
+                        transform: scale(1.1);
+                    }
+                    .contacto-nombre {
+                        color: #ffac30;
+                    }
+                }
+                .contacto-avatar {
+                    max-height: 8rem;
+                    max-width: 8rem;
+                    width: 100%;
+                    border: 0.4rem solid darken($color: #000000, $amount: 0);
+                    border-radius: 50%;
+                }
+                .contacto-nombre {
+                    font-size: 1.2rem;
+                    margin: 0 0 1rem 1rem;
+                    font-weight: 600;
+                    color: gold;
+                }
+                .eliminar-contacto {
+                    width: 3rem;
+                    height: 3rem;
+                    color: white;
+                    position: absolute;
+                    align-self: flex-end;
+                    cursor: pointer;
+                }
+            }
+        }
+        .titulo-anadir-amigos {
+            font-size: 2.4rem;
+            font-weight: 600;
+            margin: 0 0 1rem 1rem;
             border: none;
             border-bottom: 0.1rem solid darkblue;
             width: fit-content;
-          }
-          .apellidoPerfil {
-          }
         }
-        .telefonoPerfil {
-          .tituloTelefono {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            border: none;
-            border-bottom: 0.1rem solid darkblue;
-            width: fit-content;
-          }
-          .telefonoPerfil {
-          }
+        .contenedor-usuarios {
+            display: flex;
+            flex-direction: row;
+            overflow: auto;
+            padding: 1rem;
+            border: 0.2rem solid blue;
+            margin: 1rem;
+            border-radius: 1.2rem;
+            .usuario {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                min-height: 20rem;
+                min-width: 16rem;
+                max-height: 20rem;
+                max-width: 16rem;
+                background: #212330;
+                border: 0.2rem solid rgba(255, 255, 255, 0.03);
+                box-sizing: border-box;
+                border-radius: 1.2rem;
+                flex: 1;
+                margin: 0 0.5rem;
+                position: relative;
+                cursor: pointer;
+                transition: transform 400ms ease-out;
+                &:hover {
+                    border-color: #ffac30;
+                    .usuario-avatar {
+                        transform: scale(1.1);
+                    }
+                    .usuario-nombre {
+                        color: #ffac30;
+                    }
+                }
+                .usuario-avatar {
+                    max-height: 8rem;
+                    max-width: 8rem;
+                    width: 100%;
+                    border: 0.4rem solid darken($color: #000000, $amount: 0);
+                    border-radius: 50%;
+                }
+                .usuario-nombre {
+                    font-size: 1.2rem;
+                    margin: 0 0 1rem 1rem;
+                    font-weight: 600;
+                    color: gold;
+                }
+                .anadir-usuario {
+                    width: 3rem;
+                    height: 3rem;
+                    color: white;
+                    position: absolute;
+                    align-self: flex-end;
+                    cursor: pointer;
+                }
+            }
         }
-        .fechaAltaPerfil {
-          .tituloFechaAlta {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            border: none;
-            border-bottom: 0.1rem solid darkblue;
-            width: fit-content;
-          }
-          .fechaAltaPerfil {
-          }
+        .boton-facturas {
+            display: flex;
+            justify-content: center;
+            justify-items: center;
+            margin: 3rem;
+            .ver-facturas {
+                padding: 2rem;
+                border-radius: 1.2rem;
+                border: 0.2rem solid darkblue;
+            }
         }
-      }
-      .avatar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .avatarPerfil {
-          border-radius: 50%;
-          max-width: 12rem;
-          border: 0.2rem solid darken($color: #000000, $amount: 0);
-        }
-      }
     }
-    .boton-facturas {
-      .ver-facturas {
-      }
-    }
-  }
 }

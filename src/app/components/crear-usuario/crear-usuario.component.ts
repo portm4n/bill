@@ -17,12 +17,6 @@ export class CrearUsuarioComponent implements OnInit {
   usuario: Array<UsuarioDTO>;
   nuevoUsuario: CrearUsuarioDTO;
 
-
-    // nombre: string;
-    // apellidos: string;
-    // telefono: string;
-  
-
   constructor(private location: Location, private mockApiService: MockApiService, private router: Router) {}
   volver() {
     this.location.back();
@@ -37,8 +31,9 @@ export class CrearUsuarioComponent implements OnInit {
     this.mockApiService
       .crearUsuario$(this.nuevoUsuario)
       .subscribe((usuarioCreado) => {
-        this.router.navigate(['/login']); console.log(this.nuevoUsuario);
+        this.router.navigate(['/login']);
         window.alert('Usuario creado con exito');
+        //this.route.navigate(['/perfil', this.nuevoUsuario.]);
       });
   }
 }
