@@ -191,11 +191,10 @@ export function pagarFacturaPorId(facturaId) {
     bbdd.r_facturas_usuarios[
       `${facturaId}-${usuarioConectado.id}`
     ].estaPagada = true;
-    if (
-      !bbdd.r_facturas_usuarios[`${facturaId}-${usuarioConectado.id}`].find(
-        (r) => !r.estaPagada
-      )
-    ) {
+    let relaciones = obtenerArrayDeObjeto(bbdd.r_facturas_usuarios).filter(
+      (r) => r.facturaId === facturaId
+    );
+    if (!relaciones.find((r) => !r.estaPagada)) {
       bbdd.facturas[facturaId].estaPagada = true;
     }
   }
@@ -268,7 +267,7 @@ export function crearUsuario(usuarioACrear) {
     id,
     nombre: usuarioACrear.nombre,
     apellidos: usuarioACrear.apellidos,
-    telefono: '+34 661333454',
+    telefono: usuarioACrear.telefono,
     avatarURL: `https://api.adorable.io/avatars/${id}`,
     fechaDeCreacion: randomDate(new Date(2018, 0, 1), new Date()),
   };

@@ -1,34 +1,52 @@
-<div class=" contenedor-crear-usuario">
-    <div class="contenedor-titulo">
-        <div class="contenedor-logo">
-            <img src="../../../assets/img/portm4nkappa112x112.png" alt="" class="logo" />
-        </div>
+<div class="contenedor-crear-usuario">
+  <div class="contenedor-titulo">
+    <div class="contenedor-logo">
+      <img
+        src="../../../assets/img/portm4nkappa112x112.png"
+        alt=""
+        class="logo"
+      />
+    </div>
 
-        <div class="titulo-pagina">Crear Usuario</div>
+    <div class="titulo-pagina">Crear Usuario</div>
+  </div>
+  <div class="contenedor-nombre">
+    <div class="nombre">
+      <div class="titulo-nombre">Nombre</div>
+      <input
+        [(ngModel)]="nuevoUsuario.nombre"
+        class="input-nombre"
+        type="string"
+        placeholder="Nombre"
+        #nombreInPut
+      />
     </div>
-    <div class="contenedor-nombre">
-        <div class="nombre">
-            <div class="titulo-nombre">Nombre</div>
-            <input [(ngModel)]="nuevoUsuario.nombre" class="input-nombre" type="string" placeholder="Nombre" #nombreInPut>
-        </div>
-        <div class="apellidos">
-            <div class="titulo-apellidos">Apellidos</div>
-            <input [(ngModel)]="nuevoUsuario.apellidos" class="input-apellidos" type="string" placeholder="Apellidos" #apellidoInPut>
-        </div>
+    <div class="apellidos">
+      <div class="titulo-apellidos">Apellidos</div>
+      <input
+        [(ngModel)]="nuevoUsuario.apellidos"
+        class="input-apellidos"
+        type="string"
+        placeholder="Apellidos"
+        #apellidoInPut
+      />
     </div>
-    <div class="contenedor-telefono">
-        <div class="telefono">
-            <div class="titulo-telefono">Teléfono</div>
-            <input [(ngModel)]="nuevoUsuario.telefono" class="input-telefono" type="number" placeholder="Telefono" #telefonoInPut>
-        </div>
+  </div>
+  <div class="contenedor-telefono">
+    <div class="telefono">
+      <div class="titulo-telefono">Teléfono</div>
+      <input
+        [(ngModel)]="nuevoUsuario.telefono"
+        class="input-telefono"
+        type="number"
+        placeholder="Telefono"
+        #telefonoInPut
+      />
     </div>
-    <div class="contenedor-avatar">
-        <div class="avatar" *ngFor="let usuario of usuario">
-            <img class="img-avatar" [src]="usuario.avatarURL" alt="">
-        </div>
-    </div>
-    <div class="contenedor-botones">
-        <button class="crear-perfil" (click)="crearUsuario() ">Registrarse</button>
-        <button class="volver" (click)="volver()">Volver</button>
-    </div>
+  </div>
+
+  <div class="contenedor-botones">
+    <button class="crear-perfil" (click)="crearUsuario()">Registrarse</button>
+    <button class="volver" (click)="volver()">Volver</button>
+  </div>
 </div>

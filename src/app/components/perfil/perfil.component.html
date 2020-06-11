@@ -1,29 +1,41 @@
 <main class="contenedorPerfil">
-    <div class="cabecera-perfil">
-        <button class="volver" (click)="volver()">Volver</button>
-        <div class="titulo-perfil">Perfil</div>
+  <div class="contenedor-cabecera-perfil">
+    <ul class="cabecera-perfil">
+      <button class="volver" (click)="volver()">
+        <i class="fa fa-home"></i>
+      </button>
+      <div class="titulo-perfil">Perfil</div>
+    </ul>
+  </div>
+  <div class="infoPerfil">
+    <div class="datos">
+      <div class="nombre-perfil">
+        <p class="titulo-nombre">Nombre</p>
+        <p class="nombre-perfil">{{ perfil?.nombre }}</p>
+      </div>
+      <div class="apellidoPerfil">
+        <p class="tituloApellido">Apellido</p>
+        <p class="apellidoPerfil">{{ perfil?.apellidos }}</p>
+      </div>
+      <div class="telefonoPerfil">
+        <p class="tituloTelefono">Teléfono</p>
+        <p class="telefonoPerfil">{{ perfil?.telefono }}</p>
+      </div>
+      <div class="fechaAltaPerfil">
+        <p class="tituloFechaAlta">Fecha Alta</p>
+        <p class="fechaAltaPerfil">{{ perfil?.fechaDeCreacion | date }}</p>
+      </div>
     </div>
-
-
-
-    <div class="avatarYNombre">
-        <img class="avatarPerfil" [src]="perfil?.avatarURL" alt="" />
-        <p class="nombrePerfil">{{ perfil?.nombre }}</p>
+    <div class="avatar">
+      <img class="avatarPerfil" [src]="perfil?.avatarURL" alt="" />
     </div>
-    <div class="infoPerfil">
-        <div class="apellidoPerfil">
-            <p class="tituloApellido">Apellido</p>
-            <p class="apellidoPerfil">{{ perfil?.apellidos }}</p>
-        </div>
-        <div class="telefonoPerfil">
-            <p class="tituloTelefono">Teléfono</p>
-            <p class="telefonoPerfil">{{ perfil?.telefono }}</p>
-        </div>
-        <div class="fechaAltaPerfil">
-            <p class="tituloFechaAlta">Fecha Alta</p>
-            <p class="fechaAltaPerfil">{{ perfil?.fechaDeCreacion | date }}</p>
-        </div>
-        <button class="ver-facturas" [routerLink]="['/perfil', usuarioId, 'facturas']">
+  </div>
+  <div class="boton-facturas">
+    <button
+      class="ver-facturas"
+      [routerLink]="['/perfil', usuarioId, 'facturas']"
+    >
       Ver Facturas
-    </button></div>
+    </button>
+  </div>
 </main>
