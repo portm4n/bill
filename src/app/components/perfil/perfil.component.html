@@ -1,54 +1,75 @@
 <main class="contenedorPerfil">
-    <div class="contenedor-cabecera-perfil">
-        <ul class="cabecera-perfil">
-            <button class="volver" (click)="volver()">
+  <div class="contenedor-cabecera-perfil">
+    <ul class="cabecera-perfil">
+      <button class="volver" (click)="volver()">
         <i class="fa fa-home"></i>
       </button>
-            <div class="titulo-perfil">Perfil</div>
-        </ul>
+      <div class="titulo-perfil">Perfil</div>
+    </ul>
+  </div>
+  <div class="infoPerfil">
+    <div class="datos">
+      <div class="nombre-perfil">
+        <p class="titulo-nombre">Nombre</p>
+        <p class="nombre-perfil">{{ perfil?.nombre }}</p>
+      </div>
+      <div class="apellidoPerfil">
+        <p class="tituloApellido">Apellido</p>
+        <p class="apellidoPerfil">{{ perfil?.apellidos }}</p>
+      </div>
+      <div class="telefonoPerfil">
+        <p class="tituloTelefono">Teléfono</p>
+        <p class="telefonoPerfil">{{ perfil?.telefono }}</p>
+      </div>
+      <div class="fechaAltaPerfil">
+        <p class="tituloFechaAlta">Fecha Alta</p>
+        <p class="fechaAltaPerfil">{{ perfil?.fechaDeCreacion | date }}</p>
+      </div>
     </div>
-    <div class="infoPerfil">
-        <div class="datos">
-            <div class="nombre-perfil">
-                <p class="titulo-nombre">Nombre</p>
-                <p class="nombre-perfil">{{ perfil?.nombre }}</p>
-            </div>
-            <div class="apellidoPerfil">
-                <p class="tituloApellido">Apellido</p>
-                <p class="apellidoPerfil">{{ perfil?.apellidos }}</p>
-            </div>
-            <div class="telefonoPerfil">
-                <p class="tituloTelefono">Teléfono</p>
-                <p class="telefonoPerfil">{{ perfil?.telefono }}</p>
-            </div>
-            <div class="fechaAltaPerfil">
-                <p class="tituloFechaAlta">Fecha Alta</p>
-                <p class="fechaAltaPerfil">{{ perfil?.fechaDeCreacion | date }}</p>
-            </div>
-        </div>
-        <div class="avatar">
-            <img class="avatarPerfil" [src]="perfil?.avatarURL" alt="" />
-        </div>
+    <div class="avatar">
+      <img class="avatarPerfil" [src]="perfil?.avatarURL" alt="" />
     </div>
-    <p class="titulo-amigos">Amigos</p>
+  </div>
+  <p class="titulo-amigos">Amigos</p>
+  <div
+    class="contenedor-contactos"
+    *ngIf="!cargandoContactos; else templateCargandoContactos"
+  >
+    <div class="contacto" *ngFor="let contacto of contactos">
+      <img [src]="contacto.avatarURL" alt="" class="contacto-avatar" />
+      <p class="contacto-nombre">{{ contacto.nombre }}</p>
+      <img
+        class="eliminar-contacto"
+        (click)="eliminarContacto(perfil, contacto)"
+        src="../../../assets/img/eliminarContacto.svg"
+        alt=""
+      />
+    </div>
+  </div>
+  <ng-template #templateCargandoContactos>
     <div class="contenedor-contactos">
-        <div class="contacto" *ngFor="let contacto of contactos">
-            <img [src]="contacto.avatarURL" alt="" class="contacto-avatar" />
-            <p class="contacto-nombre">{{ contacto.nombre }}</p>
-            <img class="eliminar-contacto" (click)="eliminarContacto(perfil, contacto)" src="../../../assets/img/eliminarContacto.svg" alt="">
-        </div>
+      <app-cargando [fill]="'#000000'" [width]="'3rem'"> </app-cargando>
     </div>
-    <p class="titulo-anadir-amigos">Añadir amigos</p>
-    <div class="contenedor-usuarios">
-        <div class="usuario" *ngFor="let usuario of usuarios">
-            <img [src]="usuario.avatarURL" alt="" class="usuario-avatar" />
-            <p class="usuario-nombre">{{ usuario.nombre }}</p>
-            <img class="anadir-usuario" (click)="anadirUsuario(perfil, usuario)" src="../../../assets/img/anadirContacto.svg" alt="">
-        </div>
+  </ng-template>
+  <p class="titulo-anadir-amigos">Añadir amigos</p>
+  <div class="contenedor-usuarios">
+    <div class="usuario" *ngFor="let usuario of usuarios">
+      <img [src]="usuario.avatarURL" alt="" class="usuario-avatar" />
+      <p class="usuario-nombre">{{ usuario.nombre }}</p>
+      <img
+        class="anadir-usuario"
+        (click)="anadirUsuario(perfil, usuario)"
+        src="../../../assets/img/anadirContacto.svg"
+        alt=""
+      />
     </div>
-    <div class="boton-facturas">
-        <button class="ver-facturas" [routerLink]="['/perfil', usuarioId, 'facturas']">
+  </div>
+  <div class="boton-facturas">
+    <button
+      class="ver-facturas"
+      [routerLink]="['/perfil', usuarioId, 'facturas']"
+    >
       Ver Facturas
     </button>
-    </div>
+  </div>
 </main>

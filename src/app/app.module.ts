@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { CrearFacturaComponent } from './components/crear-factura/crear-factura.component';
+import { CargandoComponent } from './cargando/cargando.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CrearFacturaComponent } from './components/crear-factura/crear-factura.
     LoginComponent,
     PerfilComponent,
     CrearFacturaComponent,
+    CargandoComponent,
   ],
   imports: [BrowserModule, CommonModule, AppRoutingModule, FormsModule],
   providers: [],

@@ -1,8 +1,10 @@
 :host {
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 100%;
+  overflow: auto;
+  padding: 3.2rem 0;
   .contenedor {
     width: 64rem;
     max-width: 80%;
@@ -16,7 +18,7 @@
 }
 @media (max-height: 50rem) {
   :host {
-    padding-top: 3.2rem;
+    padding: 3.2rem 0;
     align-items: initial;
   }
 }

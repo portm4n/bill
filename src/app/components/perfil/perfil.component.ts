@@ -15,6 +15,7 @@ export class PerfilComponent implements OnInit {
   perfil: UsuarioDTO;
   contactos: Array<UsuarioDTO>;
   usuarios: Array<UsuarioDTO>;
+  cargandoContactos: boolean;
   constructor(
     private location: Location,
     private route: Router,
@@ -25,20 +26,28 @@ export class PerfilComponent implements OnInit {
     this.location.back();
   }
 
-  eliminarContacto(usuario : UsuarioDTO, contacto: UsuarioDTO){
-    this.mockApiService.eliminarContacto$(usuario.id,contacto.id)
+  eliminarContacto(usuario: UsuarioDTO, contacto: UsuarioDTO) {
+    this.cargandoContactos = true;
+    this.mockApiService.eliminarContacto$(usuario.id, contacto.id);
     window.alert('¡Amigo eliminado!');
-    this.mockApiService.obtenerContactosPorUsuarioId$(this.usuarioId).subscribe((contactos)=>{
-      this.contactos = contactos;
-    });
-
+    this.mockApiService
+      .obtenerContactosPorUsuarioId$(this.usuarioId)
+      .subscribe((contactos) => {
+        this.contactos = contactos;
+        this.cargandoContactos = false;
+      });
   }
-  anadirUsuario(usuario : UsuarioDTO, contacto: UsuarioDTO){
-    this.mockApiService.anadirContacto$(usuario.id, contacto.id)
+  anadirUsuario(usuario: UsuarioDTO, contacto: UsuarioDTO) {
+    this.mockApiService.anadirContacto$(usuario.id, contacto.id);
     this.route.navigate(['/perfil', this.usuarioId]);
-        window.alert('¡Nuevo amigo añadido!, ya tienes más que Juanjo, aunque sea solo uno');
-        this.mockApiService.obtenerContactosPorUsuarioId$(this.usuarioId).subscribe((contactos)=>{
-          this.contactos = contactos});
+    window.alert(
+      '¡Nuevo amigo añadido!, ya tienes más que Juanjo, aunque sea solo uno'
+    );
+    this.mockApiService
+      .obtenerContactosPorUsuarioId$(this.usuarioId)
+      .subscribe((contactos) => {
+        this.contactos = contactos;
+      });
   }
   ngOnInit(): void {
     this.router.params.subscribe((params) => {
@@ -49,11 +58,15 @@ export class PerfilComponent implements OnInit {
           this.perfil = usuario;
         });
     });
-    this.mockApiService.obtenerContactosPorUsuarioId$(this.usuarioId).subscribe((contactos)=>{
-      this.contactos = contactos;
-    });
-    this.mockApiService.obtenerUsuarios$().subscribe((usuarios)=> {
+    this.cargandoContactos = true;
+    this.mockApiService
+      .obtenerContactosPorUsuarioId$(this.usuarioId)
+      .subscribe((contactos) => {
+        this.contactos = contactos;
+        this.cargandoContactos = false;
+      });
+    this.mockApiService.obtenerUsuarios$().subscribe((usuarios) => {
       this.usuarios = usuarios;
-    })
+    });
   }
 }

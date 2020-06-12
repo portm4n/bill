@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CargandoComponent implements OnInit {
   @Input() fill: string = '#ffffff';
+  @Input() width: string = '4rem';
 
   constructor() {}
 
